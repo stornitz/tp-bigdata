@@ -5,8 +5,12 @@ services:
     image: prestashop/prestashop:1.7
     environment:
     - DB_SERVER=bdd
+    - PS_INSTALL_AUTO=1
+    - PS_DOMAIN=localhost:8080
     ports:
     - 8080:80
+    depends_on:
+    - bdd
 
   bdd:
     image: mysql:5.7
